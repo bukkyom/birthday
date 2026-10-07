@@ -68,3 +68,8 @@ body {
   text-align: center;
   padding: 0 16px;
 }
+
+#song-credits{
+    text-align: left;
+    font-size: 14px;
+}
