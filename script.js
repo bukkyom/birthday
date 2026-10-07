@@ -10,7 +10,7 @@ function blowCandle(){
     blow.play();
 }
 
-const song = new Audio('Heather S. Roe & Daniel Padgett - Birthday Wishes.mp3');
+const song = new Audio('Heather_S_Roe-Daniel_Padgett_Birthday_Wishes.mp3');
 function playSong(){
     song.play();
 }
