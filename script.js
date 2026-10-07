@@ -16,6 +16,7 @@ function playSong(){
 // on click replace flame with smoke
 // when all flames are clicked or flame amount = 0, change text to say "Happy birthday!" 
 const top_message = document.getElementById("top-text");
+const top_message2 = document.getElementById("top-text2");
 const countdown = document.getElementById("countdown");
 console.log(countdown);
 
@@ -25,6 +26,7 @@ console.log("flames found:", flames.length); // checks all flames are accounted
 let flames_remaining= flames.length; // counter for how many flames are left
 
 const bottom_message = document.getElementById("bottom-text");
+const bottom_message2 = document.getElementById("bottom-text2");
 
 // for each flame in the array, if its clicked then add it to out (makes it transparent)
 flames.forEach(flame => {
@@ -38,10 +40,13 @@ flames.forEach(flame => {
     flames_remaining--; // adjust amount of flames left
     countdown.textContent = flames_remaining + " !!";
     if(flames_remaining == 0){
-    top_message.textContent = "HAPPY BIRTHDAY JACK 🥳"
-    countdown.textContent = null;
-    bottom_message.textContent = "Something special for a special day. Please accept my digital cake." + '\n' + "I hope you have/had a wonderful birthday!!!";
-    playSong();
+        top_message.textContent = null;
+        top_message2.textContent = "🎈 HAPPY BIRTHDAY JACK 🎈"
+        countdown.textContent = null;
+        bottom_message.textContent = "Something special for a special day. Please accept my digital cake.";
+        bottom_message2.textContent = "I hope you have had a wonderful birthday!!! 🥳";
+        playSong(); // NEED TO DELAY BY A SECOND OR TWO
+        // have the replay button appear
     }
 
     console.log("flames left = ", flames_remaining);
