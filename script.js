@@ -2,6 +2,9 @@
 // check the script is running
 console.log("script is running!");
 
+const replay_button = document.getElementById("replay-song");
+const reset_button = document.getElementById("reset");
+
 const blow = new Audio('freesound_community-blowing-out-candlewav-14441.mp3');
 function blowCandle(){
     blow.play();
@@ -47,6 +50,8 @@ flames.forEach(flame => {
         countdown.textContent = null;
         bottom_message.textContent = "Something special for a special day. Please accept my digital cake.";
         bottom_message2.textContent = "I hope you have had a wonderful birthday!!! 🥳";
+        replay_button.hidden = false;
+        reset_button.hidden = false;
 
         setTimeout(() =>{ // NEED TO DELAY BY A SECOND OR TWO
             playSong(); 
@@ -61,7 +66,7 @@ flames.forEach(flame => {
   });
 });
 
-const reset_button = document.getElementById("reset");
+
 reset_button.addEventListener('click', () =>{
     // relight flames
     flames.forEach(flame => {
@@ -80,9 +85,14 @@ reset_button.addEventListener('click', () =>{
     // stop the song
     song.pause();
     song.currentTime = 0;
+    // reset buttons
+    replay_button.hidden = true;
+    reset_button.hidden = true;
 });
-const replay_button = document.getElementById("replay-song");
-replay_button.addEventListener('click', () => {});
+
+replay_button.addEventListener('click', () => {
+    playSong();
+});
 
 
 
