@@ -16,6 +16,7 @@ function playSong(){
 // on click replace flame with smoke
 // when all flames are clicked or flame amount = 0, change text to say "Happy birthday!" 
 const top_message = document.getElementById("top-text");
+const top2_message = document.getElementById("top2-text");
 const top_message2 = document.getElementById("top-text2");
 const countdown = document.getElementById("countdown");
 console.log(countdown);
@@ -41,22 +42,47 @@ flames.forEach(flame => {
     countdown.textContent = flames_remaining + " !!";
     if(flames_remaining == 0){
         top_message.textContent = null;
+        top2_message.textContent = null;
         top_message2.textContent = "🎈 HAPPY BIRTHDAY JACK 🎈"
         countdown.textContent = null;
         bottom_message.textContent = "Something special for a special day. Please accept my digital cake.";
         bottom_message2.textContent = "I hope you have had a wonderful birthday!!! 🥳";
-        playSong(); // NEED TO DELAY BY A SECOND OR TWO
+
+        setTimeout(() =>{ // NEED TO DELAY BY A SECOND OR TWO
+            playSong(); 
+        }, 1000);
+    
         // have the replay button appear
+
     }
 
     console.log("flames left = ", flames_remaining);
     flame.classList.add('out');
-
-    
   });
 });
 
-
+const reset_button = document.getElementById("reset");
+reset_button.addEventListener('click', () =>{
+    // relight flames
+    flames.forEach(flame => {
+        flame.classList.remove('out');
+    });
+    // put back text for wishes
+    top_message.textContent = "Blow out your candles and make a wish!";
+    top2_message.textContent = "(Tap on flames to blow them out)";
+    top_message2.textContent = ""; 
+    
+    // reset count
+    flames_remaining = 5; 
+    // hide bottom text again
+    bottom_message.textContent = "";
+    bottom_message2.textContent = "";
+    // stop the song
+    song.pause();
+    song.currentTime = 0;
+});
+const replay_button = document.getElementById("replay-song");
+replay_button.addEventListener('click', () => {});
 
 
 
